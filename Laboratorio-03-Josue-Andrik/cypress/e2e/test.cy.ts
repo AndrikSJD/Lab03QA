@@ -1,19 +1,36 @@
-describe('Login', function () {
+// describe('Agregar a Carrito de compras', function () {
+//     beforeEach(function () {
+//         Cypress.on('uncaught:exception', (err, runnable) => {
+//             return false
+//         })
+//         cy.viewport(1920, 1080)
+//         cy.visit('https://www.decasa.cr/producto/adorno-elefante-dorado-4/');
+//         cy.wait(200);
+//     });
+
+//     it('Agregar al carrito', function () {
+//         cy.get('.single_add_to_cart_button').click();
+//         cy.wait(200);
+//         cy.get('.mini-cart-counter').should('have.text', '1');
+
+//     });
+// });
+
+describe('Eliminar de Carrito de compras', function () {
     beforeEach(function () {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-    })
-    cy.visit('https://bco.catie.ac.cr:8086/login');
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            return false
+        })
+        cy.viewport(1920, 1080)
+        cy.visit('https://www.decasa.cr/producto/adorno-elefante-dorado-4/');
+        cy.wait(200);
+        cy.get('.single_add_to_cart_button').click();
+        cy.wait(200);
     });
 
-    it('Nombre de usuario requerido', function () {
-        cy.xpath('/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[5]/input').click().then(function () {
-        cy.wait(200)
-        cy.get('div[class="validation-summary-errors"]').should('have.text','Login no tuvo exito. Por favor, corrija los errores e intentelo de nuevo.\nNo cuenta encontro\n');
-        });
-        });
-       
-    afterEach(function () {
-    cy.reload();
+    it('Eliminar del carrito', function () {
+        cy.get('div[class="menu-extra"]')
+        cy.wait(200);
+
     });
-    });
+});
